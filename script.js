@@ -11,7 +11,9 @@ btn.addEventListener('click', () => {
     if ((numOfSquares <= 0 || numOfSquares > 100) && numOfSquares != null) {
         alert('Number is either too big or too small! Try again');
     } else {
-        addSquares(parseInt(numOfSquares ** 2));
+        // Prevent floating point numbers from being used
+        numOfSquares = parseInt(numOfSquares);
+        addSquares(numOfSquares ** 2);
     }
 });
 
