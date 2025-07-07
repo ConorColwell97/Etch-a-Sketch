@@ -1,6 +1,9 @@
 const btn = document.querySelector('button');
 const container = document.querySelector('#container');
 
+// Default value of squares per side
+addSquares(16);
+
 btn.addEventListener('click', () => {
     let numOfSquares = prompt('Enter squares per side');
     container.innerHTML = null;
@@ -8,7 +11,7 @@ btn.addEventListener('click', () => {
     if ((numOfSquares <= 0 || numOfSquares > 100) && numOfSquares != null) {
         alert('Number is either too big or too small! Try again');
     } else {
-        addSquares(numOfSquares ** 2);
+        addSquares(parseInt(numOfSquares ** 2));
     }
 });
 
@@ -19,9 +22,12 @@ function addSquares(numOfSquares) {
         square.classList.add('square');
         
         // Calculate the size each square needs to be to fit into the grid
-        const size = 800 / Math.sqrt(numOfSquares);
-        square.style.width = `${size - 2}px`;
-        square.style.height = `${size - 2}px`;
+        const gridSize = 800;
+        const squareSize = gridSize / Math.sqrt(numOfSquares);
+
+        // Subtracting 2 from sqaureSize accounts for border
+        square.style.width = `${squareSize - 2}px`;
+        square.style.height = `${squareSize - 2}px`;
 
         // Assign random rgb values
         let val1 = parseInt(Math.random() * 255);
