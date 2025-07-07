@@ -1,8 +1,8 @@
 const btn = document.querySelector('button');
 const container = document.querySelector('#container');
 
-// Default value of squares per side
-addSquares(16);
+// Default value of squares per side is 16 (16^2 total squares)
+addSquares(16 ** 2);
 
 btn.addEventListener('click', () => {
     let numOfSquares = prompt('Enter squares per side');
